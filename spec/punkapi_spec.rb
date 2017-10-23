@@ -6,8 +6,8 @@ describe 'Punk API tests' do
     @api = beer.random_beer_call
   end
 
-  it 'should say there is one more test' do
-    p @api
+  it 'should have beer name as a string' do
+    expect(@api[0]['name']).to be_a(String)
   end
 
 end
