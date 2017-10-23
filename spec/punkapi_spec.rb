@@ -21,7 +21,10 @@ describe 'Punk API tests' do
   end
 
   it 'has the image saved as a png' do
-
     expect((@params['image_url'])[-4..-1]).to eq(".png")
+  end
+
+  it 'has the date of first_brewed separated by a /' do
+    expect((@params['first_brewed'])[2]).to eq("/")
   end
 end
