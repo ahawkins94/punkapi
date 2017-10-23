@@ -20,4 +20,8 @@ describe 'Punk API tests' do
     expect(@params['name']).to be_a(String)
   end
 
+  it 'has the image saved as a png' do
+
+    expect((@params['image_url'])[-4..-1]).to eq(".png")
+  end
 end
