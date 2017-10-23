@@ -3,11 +3,17 @@ describe 'Punk API tests' do
 
   before(:all) do
     beer = PunkApi.new
-    @api = beer.random_beer_call
+    @ran = beer.random_beer_call
+    @id = beer.beer_call(1)
+
   end
 
   it 'should have beer name as a string' do
-    expect(@api[0]['name']).to be_a(String)
+    expect(@ran['name']).to be_a(String)
+  end
+
+  it 'should be able to test for beers by id' do
+    expect(@id['name']).to be_a(String)
   end
 
 end
