@@ -4,6 +4,11 @@ require 'json'
 class PunkApi
   include HTTParty
 
+  attr_accessor :uri
+
+  def initialize
+    @uri = ""
+  end
   base_uri 'https://api.punkapi.com/v2'
 
   def random_beer_call
@@ -16,8 +21,24 @@ class PunkApi
     id[0]
   end
 
-  def beer_params(beers_array)
-    JSON.parse(self.class.post("/beers?", body: {"params" => beers_array}).body)
+  def beers(opt = {})
+    if opt.empty? == false
+      @uri << '?'
+      opt.each do |k,v|
+        @uri << "#{k}=#{v}"
+
+        query_resp = JSON.parse(self.class.get("/beers#{uri}"))
+      end
+    else
+      response = JSON.parse(self.class.get('/beers').body)
+      response[0]
+    end
   end
 
 end
+
+kc = PunkApiService.new
+
+kc.beers({"yeast" => "american", "abv_gt" => 4})
+
+puts kc_uri
