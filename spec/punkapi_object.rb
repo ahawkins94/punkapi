@@ -21,7 +21,7 @@ class PunkApi
     id[0]
   end
 
-  def beers(opt = {})
+  def beer_params(opt = {})
     if opt.empty? == false
       num_keys = 0
       @uri << "?"
@@ -31,19 +31,13 @@ class PunkApi
           @uri << "&"
           num_keys += 1
         end
-        query_resp = JSON.parse(self.class.get("/beers#{@uri}").body)
-        query_resp[0]
       end
-    else
-      response = JSON.parse(self.class.get('/beers').body)
-      response[0]
-    end
+        params = JSON.parse(self.class.get("/beers#{@uri}").body)
+        params[0]
+      end
+
   end
 
 end
 
 kc = PunkApi.new
-
-kc.beers({"yeast" => "american", "abv_gt" => 4})
-
-puts kc.uri
