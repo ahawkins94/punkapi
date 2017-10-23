@@ -23,11 +23,16 @@ class PunkApi
 
   def beers(opt = {})
     if opt.empty? == false
-      @uri << '?'
+      num_keys = 0
+      @uri << "?"
       opt.each do |k,v|
         @uri << "#{k}=#{v}"
-
-        query_resp = JSON.parse(self.class.get("/beers#{uri}"))
+        while num_keys < opt.keys.length - 1
+          @uri << "&"
+          num_keys += 1
+        end
+        query_resp = JSON.parse(self.class.get("/beers#{@uri}").body)
+        query_resp[0]
       end
     else
       response = JSON.parse(self.class.get('/beers').body)
@@ -37,8 +42,8 @@ class PunkApi
 
 end
 
-kc = PunkApiService.new
+kc = PunkApi.new
 
 kc.beers({"yeast" => "american", "abv_gt" => 4})
 
-puts kc_uri
+puts kc.uri
