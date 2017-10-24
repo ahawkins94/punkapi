@@ -1,9 +1,19 @@
 ## ReadMe
 
-#### Synopsis
+### Synopsis
 The aim of this project was to create a service that provides tests for the Punk API, found [here](https://punkapi.com/). To achieve this we coded in Ruby and used the gems HTTParty, JSON and RSpec.
 
-#### Install
+The service has a couple of ways to run tests or retrieve data:
+##### By ID
+You can search the API by using the URL to target beers by their ID.
+##### Random
+You can use the API to call a random beer.
+##### Query Parameters
+Using Punk APIs parameters, you can target beers using the provided parameters (e.g. abv_gt, hops).
+##### All
+Run tests through or pull all of the data from the API.
+
+### Install
 <pre>gem install httparty
 gem install json
 gem install rspec
@@ -13,7 +23,7 @@ Create your folder and run <code>rspec --init</code> to initialize rspec. Within
 In the spec_helper.rb file, add <code>require_relative '(chosen name of object file).rb'</code>.
 
 
-#### Example
+### Example
 
 In the object file, we should have something similar to this:
 
