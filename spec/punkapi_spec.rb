@@ -9,27 +9,41 @@ describe 'Punk API tests' do
     @all = beer.all_beers
   end
 
+# Test random beers
   it 'should have beer name as a string' do
     expect(@ran['name']).to be_a(String)
   end
 
+  it 'has volume as an integer' do
+    expect(@ran['volume']['value']).to be_a(Integer)
+  end
+
+# Test beers by ID
   it 'should be able to test for beers by id' do
     expect(@id['name']).to be_a(String)
   end
 
+# Test beers by searching url parameters
   it 'should be able to search via parameters' do
     expect(@params['name']).to be_a(String)
   end
 
+# Test all beers
   it 'should be able to test all beers' do
-    expect(@all['name']).to be_a(String)
+    @all.each do |i|
+      expect(i['name']).to be_a(String)
+    end
   end
 
   it 'has the image saved as a png' do
-    expect((@params['image_url'])[-4..-1]).to eq(".png")
+    @all.each do |i|
+      expect((i['image_url'])[-4..-1]).to eq(".png")
+    end
   end
 
   it 'has the date of first_brewed separated by a /' do
-    expect((@params['first_brewed'])[2]).to eq("/")
+    @all.each do |i|
+      expect((i['first_brewed'])[2]).to eq("/")
+    end
   end
 end

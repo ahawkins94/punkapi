@@ -18,7 +18,6 @@ class PunkApi
 
   def all_beers
     all = JSON.parse(self.class.get("/beers").body)
-    all[0]
   end
 
   def beer_call(id)
@@ -32,17 +31,13 @@ class PunkApi
       @uri << "?"
       opt.each do |k,v|
         @uri << "#{k}=#{v}"
-        while num_keys < opt.keys.length - 1
-          @uri << "&"
-          num_keys += 1
+          while num_keys < opt.keys.length - 1
+            @uri << "&"
+            num_keys += 1
+          end
         end
-      end
-        params = JSON.parse(self.class.get("/beers#{@uri}").body)
-        params[0]
-      end
-
+      params = JSON.parse(self.class.get("/beers#{@uri}").body)
+      params[0]
+    end
   end
-
 end
-
-kc = PunkApi.new
