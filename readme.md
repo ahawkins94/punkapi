@@ -40,7 +40,8 @@ class PunkApi
     id[0]
 
   end
-end```
+end
+```
 This allows us to call a beer from PunkAPI by the ID in the url
 
 ### Tests
@@ -58,6 +59,7 @@ describe 'Punk API tests' do
   it 'should be able to check whether name is a string' do
     expect(@id['name']).to be_a(String)
   end
-end```
+end
+```
 
 This test will check the beer with an ID of 1 and check to see if the value of the key 'name' is a string.
