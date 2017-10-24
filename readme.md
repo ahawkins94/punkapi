@@ -16,7 +16,7 @@ Run tests through or pull all of the data from the API.
 ### Install
 <pre>gem install httparty
 gem install json
-gem install rspec
+gem install rspec</pre>
 
 Create your folder and run <code>rspec --init</code> to initialize rspec. Within the newly created spec folder, create files object.rb and _spec.rb.
 
