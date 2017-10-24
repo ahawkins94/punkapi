@@ -35,7 +35,7 @@ class PunkApi
           @uri << "&"
           num_keys += 1
         end
-        end
+      end
       params = JSON.parse(self.class.get("/beers#{@uri}").body)
       params[0]
     end
