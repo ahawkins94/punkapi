@@ -6,6 +6,7 @@ describe 'Punk API tests' do
     @params = beer.beer_params({"yeast" => "american", "abv_gt" => 20})
     @ran = beer.random_beer_call
     @id = beer.beer_call(1)
+    @all = beer.all_beers
   end
 
   it 'should have beer name as a string' do
@@ -18,6 +19,10 @@ describe 'Punk API tests' do
 
   it 'should be able to search via parameters' do
     expect(@params['name']).to be_a(String)
+  end
+
+  it 'should be able to test all beers' do
+    expect(@all['name']).to be_a(String)
   end
 
   it 'has the image saved as a png' do

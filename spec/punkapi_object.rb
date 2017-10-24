@@ -16,6 +16,11 @@ class PunkApi
     ran[0]
   end
 
+  def all_beers
+    all = JSON.parse(self.class.get("/beers").body)
+    all[0]
+  end
+
   def beer_call(id)
     id = JSON.parse(self.class.get("/beers/#{id}").body)
     id[0]
