@@ -23,9 +23,17 @@ describe 'Punk API tests' do
     expect(@id['name']).to be_a(String)
   end
 
+  it 'has volume as an integer' do
+    expect(@id['volume']['value']).to be_a(Integer)
+  end
+
 # Test beers by searching url parameters
   it 'should be able to search via parameters' do
     expect(@params['name']).to be_a(String)
+  end
+
+  it 'has volume as an integer' do
+    expect(@params['volume']['value']).to be_a(Integer)
   end
 
 # Test all beers
