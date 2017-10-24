@@ -31,10 +31,10 @@ class PunkApi
       @uri << "?"
       opt.each do |k,v|
         @uri << "#{k}=#{v}"
-          while num_keys < opt.keys.length - 1
-            @uri << "&"
-            num_keys += 1
-          end
+        while num_keys < opt.keys.length - 1
+          @uri << "&"
+          num_keys += 1
+        end
         end
       params = JSON.parse(self.class.get("/beers#{@uri}").body)
       params[0]
